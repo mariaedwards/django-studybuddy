@@ -2,13 +2,18 @@
 """
 
 from django.shortcuts import render
+from .models import Room
 
 
 def home(request):
     """Home page"""
-    return render(request, 'home.html')
+    rooms = Room.objects.all()
+    context = {'rooms': rooms}
+    return render(request, 'base/home.html', context)
 
 
-def room(request, _room_id):
+def room(request, room_id):
     """Room page"""
-    return render(request, 'room.html')
+    current_room = Room.objects.get(pk=room_id)
+    context = {"room": current_room}
+    return render(request, 'base/room.html', context)
