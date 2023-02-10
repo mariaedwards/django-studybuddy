@@ -2,7 +2,7 @@
 """
 
 from django.shortcuts import render
-from .models import Room
+from base.models import Room
 
 
 def home(request):
