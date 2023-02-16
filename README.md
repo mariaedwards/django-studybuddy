@@ -11,3 +11,5 @@ python manage.py migrate
 python manage.py runserver
 django-admin startapp base
 ```
+
+Follow-up with styling and so one starting [here](https://youtu.be/PtQiiknWUcI?t=14798)
