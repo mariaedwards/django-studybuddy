@@ -1,0 +1,18 @@
+<nav>
+  <h2>Search Rooms</h2>
+  <form method="GET" action="{% url 'home' %}">
+    <input type="search" name="q" placeholder="Search Rooms..." />
+  </form>
+
+  <h2>Browse Topics</h2>
+  <ul>
+    <li>
+      <a href="{% url 'home' %}">All</a>
+    </li>
+    {% for topic in topics %}
+    <li>
+      <a href="{% url 'home' %}?q={{topic.name}}">{{ topic.name }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+</nav>

@@ -1,0 +1,15 @@
+<aside>
+  <h2>Recent Activity</h2>
+  {% for comment in comments %}
+  <li>
+    <span
+      ><a href="{% url 'users' comment.user.pk %}">@{{comment.user}}</a> replied
+      to {{comment.room}} {{comment.created|timesince}} ago</span
+    >
+    <span>{{comment}}</span>
+    {% if request.user == comment.user %}
+    <a href="{% url 'delete_message' comment.pk %}">Delete</a>
+    {% endif %}
+  </li>
+  {% endfor %}
+</aside>
